@@ -22,7 +22,13 @@ $lang = array_merge($lang, array(
     'ACP_DJB_SETTINGS_TITLE'            => 'Settings',
     'ACP_DJB_SETTINGS_SAVED'            => 'Settings have been saved successfully!',
     
-    'ACP_DJB_OPT_API_URL'               => 'Discord API URL',
+    'ACP_DJB_OPT_API_URL'               => 'Discord JSON API URL',
+    'ACP_DJB_OPT_API_URL_DESC'          => 'This URL can be found in per-server settings in the "Widget" section.',
+    
     'ACP_DJB_OPT_INVITE_LINK'           => 'Discord Invite Link',
-    'ACP_DJB_OPT_AUTO_REFRESH'          => 'Auto Refresh User Count?',
+    'ACP_DJB_OPT_INVITE_LINK_DESC'      => 'This should be a non-expiring invite link to your Discord Server.',
+    
+    'ACP_DJB_OPT_COUNT_ENABLED'            => 'Display Online Member Count?',
+    'ACP_DJB_OPT_AUTO_REFRESH'          => 'Auto Refresh the Online Count?',
+    'ACP_DJB_OPT_AUTO_FETCH_LINK'       => 'Update Invite Link using API?',
 ));

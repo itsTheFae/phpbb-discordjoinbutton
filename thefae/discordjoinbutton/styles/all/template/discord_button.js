@@ -1,6 +1,6 @@
 $( document ).ready(function() {
     var discordBtnFetch = function() {
-        if( djbConfDiscordAPI == "" ) {
+        if( djbConfDiscordAPI == "" || !djbConfCountEnabled ) {
             return false;
         }
         
@@ -8,7 +8,7 @@ $( document ).ready(function() {
             var membersOnline = 0;
             var inviteLink = djbConfInviteLink;
             if( stat == 'success' ) {
-                if( typeof(data.instant_invite) == 'string' ) {
+                if( typeof(data.instant_invite) == 'string' && data.instant_invite ) {
                     inviteLink = data.instant_invite;
                 }
                 if( typeof(data.members) == 'object' ) {
@@ -28,11 +28,11 @@ $( document ).ready(function() {
                 btnTitle = djbLangLinkTitle + djbLangLinkTitleCntS + memStr + djbLangLinkTitleCntE;
             }
             
-            $dBtnLink.attr('href', inviteLink);
+            if( inviteLink && djbConfFetchInviteLink ) {
+                $dBtnLink.attr('href', inviteLink);
+            }
             $dBtnLink.attr('title', btnTitle);
             $dBtnText.html( btnText );
-            
-            $dBtn.removeClass('discord-btn-hide');
             
             if( djbConfAutoRefresh ) { 
                 setTimeout( discordBtnFetch, 300000 );

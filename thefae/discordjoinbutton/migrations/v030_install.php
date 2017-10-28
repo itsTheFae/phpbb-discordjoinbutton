@@ -2,7 +2,7 @@
 
 namespace thefae\discordjoinbutton\migrations;
 
-class v010_install extends \phpbb\db\migration\migration
+class v030_install extends \phpbb\db\migration\migration
 {
     /**
      * If our config variable already exists in the db
@@ -11,6 +11,8 @@ class v010_install extends \phpbb\db\migration\migration
     public function effectively_installed()
     {
         return isset($this->config['thefae_djb_auto_refresh']) && 
+                isset($this->config['thefae_djb_count_enabled']) && 
+                isset($this->config['thefae_djb_auto_fetch_link']) && 
                 isset($this->config['thefae_djb_api_url']) && 
                 isset($this->config['thefae_djb_invite_link']);
     }
@@ -21,7 +23,7 @@ class v010_install extends \phpbb\db\migration\migration
      */
     static public function depends_on()
     {
-        return array('\phpbb\db\migration\data\v310\alpha2');
+        return array('\phpbb\db\migration\data\v31x\v314');
     }
 
     public function update_data()
@@ -29,7 +31,9 @@ class v010_install extends \phpbb\db\migration\migration
         return array(
 
             // Add the config variable we want to be able to set
+            array('config.add', array('thefae_djb_count_enabled', 1)),
             array('config.add', array('thefae_djb_auto_refresh', 1)),
+            array('config.add', array('thefae_djb_auto_fetch_link', 1)),
             array('config.add', array('thefae_djb_api_url', "")),
             array('config.add', array('thefae_djb_invite_link', "")),
 
@@ -51,4 +55,31 @@ class v010_install extends \phpbb\db\migration\migration
             )),
         );
     }
+    
+    public function revert_data()
+    {
+        return array(
+            array('config.remove', array('thefae_djb_count_enabled')),
+            array('config.remove', array('thefae_djb_auto_refresh')),
+            array('config.remove', array('thefae_djb_auto_fetch_link')),
+            array('config.remove', array('thefae_djb_api_url')),
+            array('config.remove', array('thefae_djb_invite_link')),
+            
+            array('module.remove', array(
+                'acp',
+                'ACP_CAT_DOT_MODS',
+                'ACP_DJB_TITLE'
+            )),
+
+            array('module.remove', array(
+                'acp',
+                'ACP_DJB_TITLE',
+                array(
+                    'module_basename'       => '\thefae\discordjoinbutton\acp\main_module',
+                    'modes'                 => array('settings'),
+                ),
+            )),
+        );
+    }
 }
+

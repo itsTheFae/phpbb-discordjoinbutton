@@ -2,7 +2,9 @@
     <script>
       var djbConfDiscordAPI = "{{ DJB_API_URL|escape('js') }}";
       var djbConfInviteLink = "{{ DJB_INVITE_LINK|escape('js') }}";
+      var djbConfCountEnabled = <!-- IF DJB_COUNT_ENABLED -->true<!-- ELSE -->false<!-- ENDIF -->;
       var djbConfAutoRefresh = <!-- IF DJB_AUTO_REFRESH -->true<!-- ELSE -->false<!-- ENDIF -->;
+      var djbConfFetchInviteLink = <!-- IF DJB_AUTO_FETCH -->true<!-- ELSE -->false<!-- ENDIF -->;
       
       var djbLangLinkTitle = "{LA_DISCORD_BUTTON_TITLE}";
       var djbLangLinkText = "{LA_DISCORD_BUTTON_TEXT}";
