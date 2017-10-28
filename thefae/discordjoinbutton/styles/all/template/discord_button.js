@@ -1,13 +1,12 @@
 $( document ).ready(function() {
-    var DiscordAPI = '';
-    var DefaultInviteLink = "";
-    var DefaultLinkTitle = "Join our Discord Server";
-    var DefaultLinkText = "Join Discord";
-    
     var discordBtnFetch = function() {
-        $.get(DiscordAPI, {}, function(data, stat){
+        if( djbConfDiscordAPI == "" ) {
+            return false;
+        }
+        
+        $.get(djbConfDiscordAPI, {}, function(data, stat){
             var membersOnline = 0;
-            var inviteLink = DefaultInviteLink;
+            var inviteLink = djbConfInviteLink;
             if( stat == 'success' ) {
                 if( typeof(data.instant_invite) == 'string' ) {
                     inviteLink = data.instant_invite;
@@ -20,18 +19,13 @@ $( document ).ready(function() {
             var $dBtn = $(".discord-btn");
             var $dBtnLink = $dBtn.find("a");
             var $dBtnText = $dBtn.find("a > span");
-            var btnText = DefaultLinkText; //$dBtnText.text();
-            var btnTitle = DefaultLinkTitle;
+            var btnText = djbLangLinkText; 
+            var btnTitle = djbLangLinkTitle;
             var memStr = membersOnline.toString();
             
             if( membersOnline > 0 ) {
-                btnText = btnText + "<span>(" + memStr + ")</span>";
-                
-                if( membersOnline == 1 ) {
-                    btnTitle = DefaultLinkTitle + " - " + memStr + " member currently online"
-                } else {
-                    btnTitle = DefaultLinkTitle + " - " + memStr + " members currently online"
-                }
+                btnText = btnText + "<span>" + djbLangLinkTextCntS + memStr + djbLangLinkTextCntE + "</span>";
+                btnTitle = djbLangLinkTitle + djbLangLinkTitleCntS + memStr + djbLangLinkTitleCntE;
             }
             
             $dBtnLink.attr('href', inviteLink);
@@ -40,7 +34,9 @@ $( document ).ready(function() {
             
             $dBtn.removeClass('discord-btn-hide');
             
-            setTimeout( discordBtnFetch, 300000 );
+            if( djbConfAutoRefresh ) { 
+                setTimeout( discordBtnFetch, 300000 );
+            }
         });
     }
     discordBtnFetch();

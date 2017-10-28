@@ -1,0 +1,30 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_SETTINGS}</h1>
+
+<form id="acp_board" method="post" action="{U_ACTION}">
+    <fieldset>
+        <dl>
+            <dt><label for="thefae_djb_api_url">{L_ACP_DJB_OPT_API_URL}</label></dt>
+            <dd><input type="text" size="40" maxlength="255" name="thefae_djb_api_url" value="{THEFAE_DJB_API_URL}"></dd>
+        </dl>
+        <dl>
+            <dt><label for="thefae_djb_invite_link">{L_ACP_DJB_OPT_INVITE_LINK}</label></dt>
+            <dd><input type="text" size="40" maxlength="255" name="thefae_djb_invite_link" value="{THEFAE_DJB_INVITE_LINK}"></dd>
+        </dl>
+        <dl>
+            <dt><label for="thefae_djb_auto_refresh">{L_ACP_DJB_OPT_AUTO_REFRESH}</label></dt>
+            <dd><input type="radio" class="radio" name="thefae_djb_auto_refresh" value="1" <!-- IF THEFAE_DJB_AUTO_REFRESH -->checked="checked" <!-- ENDIF -->/> {L_YES} &nbsp;
+                <input type="radio" class="radio" name="thefae_djb_auto_refresh" value="0" <!-- IF not THEFAE_DJB_AUTO_REFRESH -->checked="checked" <!-- ENDIF -->/> {L_NO}</dd>
+        </dl>
+
+        <p class="submit-buttons">
+            <input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+            <input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+        </p>
+
+        {S_FORM_TOKEN}
+    </fieldset>
+</form>
+
+<!-- INCLUDE overall_footer.html -->

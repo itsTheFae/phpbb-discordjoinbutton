@@ -1,0 +1,10 @@
+services:
+    thefae.discordjoinbutton.listener:
+        class: thefae\discordjoinbutton\event\main_listener
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@user'
+        tags:
+          - { name: event.listener }

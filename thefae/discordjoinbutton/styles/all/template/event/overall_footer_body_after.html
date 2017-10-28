@@ -1,4 +1,16 @@
 <!-- IF not $INCLUDED_DISCORD_BUTTONJS -->
+    <script>
+      var djbConfDiscordAPI = "{{ DJB_API_URL|escape('js') }}";
+      var djbConfInviteLink = "{{ DJB_INVITE_LINK|escape('js') }}";
+      var djbConfAutoRefresh = <!-- IF DJB_AUTO_REFRESH -->true<!-- ELSE -->false<!-- ENDIF -->;
+      
+      var djbLangLinkTitle = "{LA_DISCORD_BUTTON_TITLE}";
+      var djbLangLinkText = "{LA_DISCORD_BUTTON_TEXT}";
+      var djbLangLinkTextCntS = "{LA_DISCORD_BUTTON_TEXT_COUNT_START}";
+      var djbLangLinkTextCntE = "{LA_DISCORD_BUTTON_TEXT_COUNT_END}";
+      var djbLangLinkTitleCntS = "{LA_DISCORD_BUTTON_TITLE_COUNT_START}";
+      var djbLangLinkTitleCntE = "{LA_DISCORD_BUTTON_TITLE_COUNT_END}";
+    </script>
     <!-- INCLUDEJS @thefae_discordjoinbutton/discord_button.js -->
     <!-- DEFINE $INCLUDED_DISCORD_BUTTONJS = true -->
 <!-- ENDIF -->
