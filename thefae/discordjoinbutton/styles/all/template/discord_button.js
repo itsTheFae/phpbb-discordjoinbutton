@@ -18,7 +18,7 @@ $( document ).ready(function() {
             
             var $dBtn = $(".discord-btn");
             var $dBtnLink = $dBtn.find("a");
-            var $dBtnText = $dBtn.find("a > span");
+            var $dBtnText = $dBtn.find("a > strong");
             var btnText = djbLangLinkText; 
             var btnTitle = djbLangLinkTitle;
             var memStr = membersOnline.toString();
