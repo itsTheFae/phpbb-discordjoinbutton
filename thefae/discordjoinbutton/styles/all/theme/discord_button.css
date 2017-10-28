@@ -1,0 +1,31 @@
+.discord-btn a {
+    background: #7289da;
+    color: #fff;
+    border-radius: 4px;
+    padding: 6px;
+    line-height: 100%;
+    padding-top: 5px;
+    padding-bottom: 6px;
+    font-weight: bold;
+}
+
+.discord-btn a span span {
+    font-weight: normal;
+    font-size: 9px;
+    padding-left: 3px;
+    position: relative;
+    top: -1px;
+}
+
+.discord-btn a:hover {
+    text-decoration: none;
+    background: #7289da;
+    background: -moz-linear-gradient(top, rgba(142,160,219,1) 0%, rgba(114,137,218,1) 50%, rgba(86,110,188,1) 100%); 
+    background: -webkit-linear-gradient(top, rgba(142,160,219,1) 0%,rgba(114,137,218,1) 50%,rgba(86,110,188,1) 100%); 
+    background: linear-gradient(to bottom, rgba(142,160,219,1) 0%,rgba(114,137,218,1) 50%,rgba(86,110,188,1) 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ea0db', endColorstr='#566ebc',GradientType=0 ); 
+}
+
+.discord-btn-hide {
+    display: none;
+}
