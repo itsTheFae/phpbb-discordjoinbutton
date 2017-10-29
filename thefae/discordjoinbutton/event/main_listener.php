@@ -49,32 +49,38 @@ class main_listener implements EventSubscriberInterface
     }
     
     public function add_page_header_data($event)
-	{
-		$invite_link = (!empty($this->config['thefae_djb_invite_link'])) ? $this->config['thefae_djb_invite_link'] : "#";
+    {
+        $invite_link = (!empty($this->config['thefae_djb_invite_link'])) ? $this->config['thefae_djb_invite_link'] : "#";
+        $has_invite_link = (!empty($this->config['thefae_djb_invite_link'])) ? true : false ;
+        
+        // We might get an invite link from the API, so if it is set we can display the link.
+        $has_invite_link = (!empty($this->config['thefae_djb_api_url'])) ? true : $has_invite_link ;
         
         $vars = array(
-			'U_DJB_INVITE_LINK'	=> $invite_link,
-		);
+            'U_DJB_INVITE_LINK'     => $invite_link,
+            'T_DJB_HAS_INVITE_LINK' => $has_invite_link
+        );
         
         $this->template->assign_vars( $vars );
-	}
+    }
     
     public function add_page_footer_data($event)
-	{
-		$invite_link = (!empty($this->config['thefae_djb_invite_link'])) ? $this->config['thefae_djb_invite_link'] : "#";
+    {
+        $invite_link = (!empty($this->config['thefae_djb_invite_link'])) ? $this->config['thefae_djb_invite_link'] : "#";
         $api_url = !$this->config['thefae_djb_api_url'] ? "" : $this->config['thefae_djb_api_url'];
         $count_enabled = !$this->config['thefae_djb_count_enabled'] ? false : true;
         $auto_refresh = !$this->config['thefae_djb_auto_refresh'] ? false : true;
         $auto_fetch = !$this->config['thefae_djb_auto_fetch_link'] ? false : true;
         
         $vars = array(
-            'DJB_API_URL'       => $api_url,
-			'DJB_INVITE_LINK'	=> $invite_link,
-            'DJB_COUNT_ENABLED'  => $count_enabled,
-            'DJB_AUTO_REFRESH'  => $auto_refresh,
-            'DJB_AUTO_FETCH'  => $auto_fetch
-		);
+            'DJB_API_URL'           => $api_url,
+            'DJB_INVITE_LINK'       => $invite_link,
+            'DJB_COUNT_ENABLED'     => $count_enabled,
+            'DJB_AUTO_REFRESH'      => $auto_refresh,
+            'DJB_AUTO_FETCH'        => $auto_fetch
+        );
         
         $this->template->assign_vars( $vars );
-	}
+    }
 }
+
