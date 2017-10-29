@@ -5,4 +5,4 @@ The extension is compatible primarilly with Prosilver-based styles and provides 
 
 Language files are available for english, and others may be added if translations are provided.  All contributions are welcome! 
 
-**Current Version:** _0.3.0_  
+**Current Version:** _0.3.1_  

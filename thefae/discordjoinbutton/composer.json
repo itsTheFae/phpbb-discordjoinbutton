@@ -3,7 +3,7 @@
     "type": "phpbb-extension",
     "description": "Discord Join Button Extension for phpBB 3.2",
     "homepage": "https://github.com/itsTheFae/phpbb-discordjoinbutton",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "time": "2017-10-13",
     "keywords": ["phpbb", "extension", "thefae", "discord", "discordjoinbutton", "join", "button"],
     "license": "GPL-2.0",
