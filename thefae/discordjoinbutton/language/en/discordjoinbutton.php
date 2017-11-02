@@ -21,6 +21,8 @@ $lang = array_merge($lang, array(
     'ACP_DJB_TITLE'                     => 'Discord Join Button',
     'ACP_DJB_SETTINGS_TITLE'            => 'Settings',
     'ACP_DJB_SETTINGS_SAVED'            => 'Settings have been saved successfully!',
+    'ACP_DJB_SETTINGS_GROUP_GENERAL'    => 'General Settings',
+    'ACP_DJB_SETTINGS_GROUP_JS'         => 'Javascript Options',
     
     'ACP_DJB_OPT_API_URL'               => 'Discord JSON API URL',
     'ACP_DJB_OPT_API_URL_DESC'          => 'This URL can be found in per-server settings in the "Widget" section.',

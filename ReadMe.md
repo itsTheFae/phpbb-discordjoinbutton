@@ -6,7 +6,7 @@ The extension is compatible primarilly with **Prosilver**-based styles and provi
 
 Language availability is currently just English, but others may be added if translations are provided.  All contributions are welcome! 
 
-**Current Version:** _0.3.2_  
+**Current Version:** _0.3.3_  
 
 ## How To
 
